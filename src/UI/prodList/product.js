@@ -4,6 +4,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import StarIcon from "@material-ui/icons/Star";
 import { useContext } from "react";
 import { AppContext } from "../../context/context";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import db from "../../data/db.json";
 
 const useStyles = makeStyles((theme) => ({
@@ -68,14 +69,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, cart }) => {
   // fetching classes from useStyles()
   const classes = useStyles();
   const [cartData, setCartData] = useContext(AppContext).cartData;
+  const [wishListData, setwishListData] = useContext(AppContext).wishListData;
 
+  // add to cart handler
   const updateCart = (id) => {
     cartData.push(db[id]);
     setCartData(cartData);
+  };
+
+  // wishlist data handler
+  const addToWishList = (id) => {
+    wishListData.push(db[id]);
+    setwishListData(wishListData);
   };
   return (
     <div className={classes.root}>
@@ -91,12 +100,21 @@ const ProductCard = ({ product }) => {
       </div>
       <div className={classes.productDetails}>
         <span className={classes.productPrice}> ₹ {product.price}</span>
-        <IconButton
-          onClick={() => updateCart(product.id)}
-          className={classes.cart}
-        >
-          <ShoppingCartIcon /> <span>Add to cart</span>
-        </IconButton>
+        {cart ? (
+          <IconButton
+            onClick={() => addToWishList(product.id)}
+            className={classes.wishlist}
+          >
+            <FavoriteIcon />
+          </IconButton>
+        ) : (
+          <IconButton
+            onClick={() => updateCart(product.id)}
+            className={classes.cart}
+          >
+            <ShoppingCartIcon /> <span>Add to cart</span>
+          </IconButton>
+        )}
       </div>
     </div>
   );

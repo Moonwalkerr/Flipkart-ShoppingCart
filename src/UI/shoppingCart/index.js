@@ -5,32 +5,34 @@ import ProductCard from "../prodList/product";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: theme.spacing(1),
+    padding: 10,
+  },
+  cart: {
     width: "100%",
     margin: theme.spacing(1),
     display: "grid",
     gridTemplateColumns: "repeat(3,1fr)",
     columnGap: 10,
   },
-  productImg: {
-    marginBottom: theme.spacing(1.2),
-    objectFit: "contain",
-    height: "25vh",
-  },
 }));
 
 const ShoppingCart = () => {
   // fetching classes from useStyles()
   const classes = useStyles();
-  const [cartData, setCartData] = useContext(AppContext).cartData;
+  const cartData = useContext(AppContext).cartData[0];
   return (
     <div className={classes.root}>
-      {cartData.length > 0 ? (
-        cartData.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))
-      ) : (
-        <h2>No Items</h2>
-      )}
+      <h3>My cart</h3>
+      <div className={classes.cart}>
+        {cartData.length > 0 ? (
+          cartData.map((product) => (
+            <ProductCard key={product.id} product={product} cart={true} />
+          ))
+        ) : (
+          <h2>No Items</h2>
+        )}
+      </div>
     </div>
   );
 };
