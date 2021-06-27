@@ -1,13 +1,35 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { useContext } from "react";
+import { AppContext } from "../../context/context";
+
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    backgroundColor: "#F1F3F6",
+    height: "100vh",
+    display: "grid",
+    placeItems: "center",
+  },
+  cart: {
+    backgroundColor: "#FFFFFF",
+    height: "90vh",
+    width: "90vw",
+    boxShadow: "1px 1px 1px 2px rgba(0, 0, 0,0.2)",
+  },
 }));
 
 const ShoppingCart = () => {
   // fetching classes from useStyles()
   const classes = useStyles();
-
-  return <div className={classes.root}>ShoppingCart</div>;
+  const [cartData, setCartData] = useContext(AppContext).cartData;
+  return (
+    <div className={classes.root}>
+      {/* {cartData.length > 0 ? ( */}
+      <div className={classes.cart}></div>
+      {/* ) : ( */}
+      {/* <h2>No Cart Items</h2> */}
+      {/* )} */}
+    </div>
+  );
 };
 
 export default ShoppingCart;
