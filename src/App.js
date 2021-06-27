@@ -3,7 +3,7 @@ import Dashboard from "./UI/dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ShoppingCart from "./UI/shoppingCart";
 import Nav from "./UI/nav/";
-import Wishlist from "./UI/shoppingCart/wishlist";
+import SaveForLater from "./UI/shoppingCart/saveForLater";
 
 function App() {
   return (
@@ -17,8 +17,8 @@ function App() {
           <Route path="/cart">
             <ShoppingCart />
           </Route>
-          <Route path="/wishlist">
-            <Wishlist />
+          <Route path="/saved">
+            <SaveForLater />
           </Route>
         </Switch>
       </Router>

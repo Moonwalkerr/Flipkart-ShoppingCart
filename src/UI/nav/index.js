@@ -100,9 +100,9 @@ const Nav = () => {
             <ShoppingCartIcon /> Cart
           </Button>
         </Link>
-        <Link to={"/wishlist"} style={{ textDecoration: "none" }}>
+        <Link to={"/saved"} style={{ textDecoration: "none" }}>
           <Button className={classes.shoppingCart}>
-            <FavoriteIcon /> Wishlist
+            <FavoriteIcon /> Saved
           </Button>
         </Link>
       </div>

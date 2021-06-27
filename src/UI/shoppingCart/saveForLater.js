@@ -16,16 +16,23 @@ const useStyles = makeStyles((theme) => ({
     gridTemplateColumns: "repeat(3,1fr)",
     columnGap: 10,
   },
+  heading: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    color: "red",
+    textDecoration: "underline",
+  },
 }));
 
-const Wishlist = () => {
+const SaveForLater = () => {
   // fetching classes from useStyles()
   const classes = useStyles();
   const wishListData = useContext(AppContext).wishListData[0];
   return (
     <div className={classes.root}>
-      <h3>
-        My Wishlist <FavoriteIcon />{" "}
+      <h3 className={classes.heading}>
+        Saved For Later <FavoriteIcon />
       </h3>
       <div className={classes.cart}>
         {wishListData.length > 0 ? (
@@ -40,4 +47,4 @@ const Wishlist = () => {
   );
 };
 
-export default Wishlist;
+export default SaveForLater;
