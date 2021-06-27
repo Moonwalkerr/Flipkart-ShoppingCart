@@ -1,9 +1,9 @@
 import "./App.css";
-
+import Dashboard from "./UI/dashboard";
 function App() {
   return (
     <div className="App">
-      <h2>Lets build Flipkart:- Cart</h2>
+      <Dashboard />
     </div>
   );
 }
