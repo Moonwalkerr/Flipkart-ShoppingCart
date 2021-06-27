@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { IconButton, Button } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { ArrowDropDown } from "@material-ui/icons";
 import CustomizedInputBase from "./searchInput";
 import { Link } from "react-router-dom";
