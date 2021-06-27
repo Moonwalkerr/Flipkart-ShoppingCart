@@ -79,12 +79,14 @@ const ProductCard = ({ product, cart }) => {
   const updateCart = (id) => {
     cartData.push(db[id]);
     setCartData(cartData);
+    alert("Added to cart");
   };
 
   // wishlist data handler
   const addToWishList = (id) => {
     wishListData.push(db[id]);
     setwishListData(wishListData);
+    alert("Added to Wishlist");
   };
   return (
     <div className={classes.root}>
