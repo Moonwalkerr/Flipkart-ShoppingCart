@@ -1,21 +1,27 @@
-import { IconButton } from "@material-ui/core";
+import { Icon, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// stylings for the Navbar via material ui stylings
+import StarIcon from "@material-ui/icons/Star";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
     padding: 15,
     display: "flex",
     flexDirection: "column",
-    height: "36vh",
-    width: "24vw",
+    height: "38vh",
+    width: "26vw",
     boxShadow: "1px 1px 3px 3px rgba(0,0,0,0.1)",
   },
   productImg: {
     marginBottom: theme.spacing(1.2),
     objectFit: "contain",
     height: "25vh",
+  },
+  prod: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   prodName: {
     fontWeight: "400",
@@ -24,11 +30,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: 6,
+    marginTop: theme.spacing(1),
   },
   productPrice: {
     fontWeight: "bold",
     fontSize: 18,
+  },
+  prodRating: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#26A541",
+    width: 50,
+    padding: "1px 5px",
+    textAlign: "center",
+    borderRadius: 10,
+    color: "#fafafafa",
+  },
+  starIcon: {
+    color: "#fafafafa",
   },
   cart: {
     fontSize: 14,
@@ -52,7 +72,15 @@ const ProductCard = ({ product }) => {
   return (
     <div className={classes.root}>
       <img className={classes.productImg} src={product.imageURL} alt="" />
-      <p className={classes.prodName}>{product.name}</p>
+      <div className={classes.prod}>
+        <p className={classes.prodName}>{product.name}</p>
+        <p className={classes.prodRating}>
+          {product.rating}
+          <Icon className={classes.starIcon}>
+            <StarIcon />
+          </Icon>
+        </p>
+      </div>
       <div className={classes.productDetails}>
         <span className={classes.productPrice}> ₹ {product.price}</span>
         <IconButton className={classes.cart}>
