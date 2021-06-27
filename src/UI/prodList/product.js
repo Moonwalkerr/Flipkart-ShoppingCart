@@ -6,7 +6,8 @@ import { useContext } from "react";
 import { AppContext } from "../../context/context";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import db from "../../data/db.json";
-
+import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ProductCard = ({ product, cart }) => {
+const ProductCard = ({ product, cart, removeFrom }) => {
   // fetching classes from useStyles()
   const classes = useStyles();
   const [cartData, setCartData] = useContext(AppContext).cartData;
@@ -102,6 +103,15 @@ const ProductCard = ({ product, cart }) => {
       </div>
       <div className={classes.productDetails}>
         <span className={classes.productPrice}> ₹ {product.price}</span>
+        {removeFrom && (
+          <IconButton>
+            {removeFrom === "cart" ? (
+              <RemoveShoppingCartIcon />
+            ) : (
+              <DeleteOutlineIcon />
+            )}
+          </IconButton>
+        )}
         {cart ? (
           <IconButton
             onClick={() => addToWishList(product.id)}

@@ -38,7 +38,12 @@ const ShoppingCart = () => {
       <div className={classes.cart}>
         {cartData.length > 0 ? (
           cartData.map((product) => (
-            <ProductCard key={product.id} product={product} cart={true} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              cart={true}
+              removeFrom="cart"
+            />
           ))
         ) : (
           <h2>No Items</h2>

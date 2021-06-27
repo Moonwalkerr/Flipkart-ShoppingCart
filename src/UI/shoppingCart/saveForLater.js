@@ -38,7 +38,12 @@ const SaveForLater = () => {
       <div className={classes.cart}>
         {wishListData.length > 0 ? (
           wishListData.map((product) => (
-            <ProductCard key={product.id} product={product} cart={true} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              cart={true}
+              removeFrom="wishList"
+            />
           ))
         ) : (
           <h2>No Items</h2>
