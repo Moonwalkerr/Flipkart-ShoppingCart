@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core/styles";
-import FilterDrawer from "./filterDrawer";
 import ProductCard from "./productCard";
 import { useContext } from "react";
 import { AppContext } from "../../context/context";
@@ -31,7 +30,6 @@ const ProdListGrid = () => {
   const displayData = useContext(AppContext).displayData[0];
   return (
     <div className={classes.dashboard}>
-      <FilterDrawer />
       <div className={classes.root}>
         {displayData.map((product) => {
           return <ProductCard product={product} />;
