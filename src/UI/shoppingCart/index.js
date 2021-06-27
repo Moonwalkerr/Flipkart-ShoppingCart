@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AppContext } from "../../context/context";
 import ProductCard from "../prodList/product";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import TotalPrice from "./total";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,6 +50,7 @@ const ShoppingCart = () => {
           <h2>No Items</h2>
         )}
       </div>
+      {cartData.length > 0 && <TotalPrice />}
     </div>
   );
 };
