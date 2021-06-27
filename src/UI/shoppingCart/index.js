@@ -21,6 +21,7 @@ const ShoppingCart = () => {
   // fetching classes from useStyles()
   const classes = useStyles();
   const [cartData, setCartData] = useContext(AppContext).cartData;
+  console.log(cartData);
   return (
     <div className={classes.root}>
       <div className={classes.cart}>

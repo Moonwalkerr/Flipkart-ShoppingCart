@@ -74,8 +74,8 @@ const ProductCard = ({ product }) => {
   const [cartData, setCartData] = useContext(AppContext).cartData;
 
   const updateCart = (id) => {
-    let newCartData = db[id];
-    setCartData({ ...cartData, newCartData });
+    cartData.push(db[id]);
+    setCartData(cartData);
   };
   return (
     <div className={classes.root}>
