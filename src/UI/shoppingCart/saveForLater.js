@@ -41,7 +41,6 @@ const SaveForLater = () => {
             <ProductCard
               key={product.id}
               product={product}
-              cart={true}
               removeFrom="wishList"
             />
           ))

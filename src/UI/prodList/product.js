@@ -77,9 +77,13 @@ const ProductCard = ({ product, cart, removeFrom }) => {
   const [saved, setSavedtData] = useContext(AppContext).saved;
 
   // add to cart handler
-  const updateCart = (id) => {
+  const updateCart = (id, fromSaved) => {
     cartData.push(db[id]);
     setCartData(cartData);
+    if (fromSaved) {
+      let newsaved = saved.filter((data) => data.id !== id);
+      setSavedtData(newsaved);
+    }
     alert("Added to cart");
   };
 
@@ -87,6 +91,8 @@ const ProductCard = ({ product, cart, removeFrom }) => {
   const addToSaved = (id) => {
     saved.push(db[id]);
     setSavedtData(saved);
+    let newCartData = cartData.filter((data) => data.id !== id);
+    setCartData(newCartData);
     alert("Added to Saved Items");
   };
 
@@ -131,7 +137,11 @@ const ProductCard = ({ product, cart, removeFrom }) => {
           </IconButton>
         ) : (
           <IconButton
-            onClick={() => updateCart(product.id)}
+            onClick={
+              cart
+                ? () => updateCart(product.id)
+                : () => updateCart(product.id, true)
+            }
             className={classes.cart}
           >
             <ShoppingCartIcon /> <span>Add to cart</span>
