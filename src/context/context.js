@@ -7,13 +7,13 @@ const AppContextProvider = (props) => {
   // displayData will be shown on dashboard
   const [displayData, setDisplayData] = useState(db);
   const [cartData, setCartData] = useState([]);
-  const [wishListData, setwishListData] = useState([]);
+  const [saved, setSavedtData] = useState([]);
   return (
     <AppContext.Provider
       value={{
         displayData: [displayData, setDisplayData],
         cartData: [cartData, setCartData],
-        wishListData: [wishListData, setwishListData],
+        saved: [saved, setSavedtData],
       }}
     >
       {props.children}

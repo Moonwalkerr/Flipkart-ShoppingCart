@@ -29,15 +29,15 @@ const useStyles = makeStyles((theme) => ({
 const SaveForLater = () => {
   // fetching classes from useStyles()
   const classes = useStyles();
-  const wishListData = useContext(AppContext).wishListData[0];
+  const saved = useContext(AppContext).saved[0];
   return (
     <div className={classes.root}>
       <h3 className={classes.heading}>
         Saved For Later <FavoriteIcon />
       </h3>
       <div className={classes.cart}>
-        {wishListData.length > 0 ? (
-          wishListData.map((product) => (
+        {saved.length > 0 ? (
+          saved.map((product) => (
             <ProductCard
               key={product.id}
               product={product}

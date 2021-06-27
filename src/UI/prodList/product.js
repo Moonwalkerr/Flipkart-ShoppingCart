@@ -74,7 +74,7 @@ const ProductCard = ({ product, cart, removeFrom }) => {
   // fetching classes from useStyles()
   const classes = useStyles();
   const [cartData, setCartData] = useContext(AppContext).cartData;
-  const [wishListData, setwishListData] = useContext(AppContext).wishListData;
+  const [saved, setSavedtData] = useContext(AppContext).saved;
 
   // add to cart handler
   const updateCart = (id) => {
@@ -83,11 +83,11 @@ const ProductCard = ({ product, cart, removeFrom }) => {
     alert("Added to cart");
   };
 
-  // wishlist data handler
-  const addToWishList = (id) => {
-    wishListData.push(db[id]);
-    setwishListData(wishListData);
-    alert("Added to Wishlist");
+  // Saved data handler
+  const addToSaved = (id) => {
+    saved.push(db[id]);
+    setSavedtData(saved);
+    alert("Added to Saved Items");
   };
 
   const handleRemove = (id) => {
@@ -95,8 +95,8 @@ const ProductCard = ({ product, cart, removeFrom }) => {
       let newCartData = cartData.filter((data) => data.id !== id);
       setCartData(newCartData);
     } else {
-      let newWishListData = wishListData.filter((data) => data.id !== id);
-      setwishListData(newWishListData);
+      let newsaved = saved.filter((data) => data.id !== id);
+      setSavedtData(newsaved);
     }
   };
   return (
@@ -124,7 +124,7 @@ const ProductCard = ({ product, cart, removeFrom }) => {
         )}
         {cart ? (
           <IconButton
-            onClick={() => addToWishList(product.id)}
+            onClick={() => addToSaved(product.id)}
             className={classes.wishlist}
           >
             <FavoriteIcon />
