@@ -75,13 +75,14 @@ const Nav = () => {
     <header className={classes.root}>
       {/* Main Div Element, Contains Logo Text and Search TextField */}
       <div className={classes.mainDiv}>
-        <IconButton className={classes.menuIcon}></IconButton>
-        <h3 className={classes.navbarLogo}>
-          Flipkart
-          <div className={classes.innerHeading}>
-            Explore <span className={classes.plus}>Plus</span>
-          </div>
-        </h3>
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <h3 className={classes.navbarLogo}>
+            Flipkart
+            <div className={classes.innerHeading}>
+              Explore <span className={classes.plus}>Plus</span>
+            </div>
+          </h3>
+        </Link>
         <CustomizedInputBase />
       </div>
       {/* Essential Buttons on Flipkart dashboard */}
