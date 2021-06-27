@@ -3,7 +3,6 @@ import ProductCard from "./product";
 import { useContext } from "react";
 import { AppContext } from "../../context/context";
 
-// stylings for the Navbar via material ui stylings
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -11,11 +10,6 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplateColumns: "repeat(3,1fr)",
     columnGap: 10,
-  },
-  productImg: {
-    marginBottom: theme.spacing(1.2),
-    objectFit: "contain",
-    height: "25vh",
   },
 }));
 
