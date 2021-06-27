@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { ArrowDropDown } from "@material-ui/icons";
 import CustomizedInputBase from "./searchInput";
 import { Link } from "react-router-dom";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 
 // stylings for the Navbar via material ui stylings
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   buttons: {
-    width: "300px",
+    width: "350px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
@@ -97,6 +98,11 @@ const Nav = () => {
         <Link to={"/cart"} style={{ textDecoration: "none" }}>
           <Button className={classes.shoppingCart}>
             <ShoppingCartIcon /> Cart
+          </Button>
+        </Link>
+        <Link to={"/wishlist"} style={{ textDecoration: "none" }}>
+          <Button className={classes.shoppingCart}>
+            <FavoriteIcon /> Wishlist
           </Button>
         </Link>
       </div>

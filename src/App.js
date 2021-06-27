@@ -3,6 +3,7 @@ import Dashboard from "./UI/dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ShoppingCart from "./UI/shoppingCart";
 import Nav from "./UI/nav/";
+import Wishlist from "./UI/shoppingCart/wishlist";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <ShoppingCart />
+          </Route>
+          <Route path="/wishlist">
+            <Wishlist />
           </Route>
         </Switch>
       </Router>
