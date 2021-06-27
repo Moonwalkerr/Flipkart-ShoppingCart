@@ -26,7 +26,7 @@ const ProdListGrid = () => {
   return (
     <div className={classes.root}>
       {displayData.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard key={product.id} product={product} />;
       })}
     </div>
   );
