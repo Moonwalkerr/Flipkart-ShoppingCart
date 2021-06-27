@@ -1,6 +1,7 @@
 import "./App.css";
 import Dashboard from "./UI/dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ShoppingCart from "./UI/shoppingCart";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
           <Route exact path="/">
             <Dashboard />
           </Route>
-          {/* <Route></Route> */}
+          <Route path="/cart">
+            <ShoppingCart />
+          </Route>
         </Switch>
       </Router>
     </div>

@@ -3,6 +3,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { IconButton, Button } from "@material-ui/core";
 import { ArrowDropDown } from "@material-ui/icons";
 import CustomizedInputBase from "./searchInput";
+import { Link } from "react-router-dom";
 
 // stylings for the Navbar via material ui stylings
 const useStyles = makeStyles((theme) => ({
@@ -92,9 +93,11 @@ const Nav = () => {
           More
           <ArrowDropDown />
         </Button>
-        <Button className={classes.shoppingCart}>
-          <ShoppingCartIcon /> Cart
-        </Button>
+        <Link to={"/cart"} style={{ textDecoration: "none" }}>
+          <Button className={classes.shoppingCart}>
+            <ShoppingCartIcon /> Cart
+          </Button>
+        </Link>
       </div>
     </header>
   );
