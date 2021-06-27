@@ -23,11 +23,9 @@ const ShoppingCart = () => {
   const [cartData, setCartData] = useContext(AppContext).cartData;
   return (
     <div className={classes.root}>
-      {/* {cartData.length > 0 ? ( */}
-      <div className={classes.cart}></div>
-      {/* ) : ( */}
-      {/* <h2>No Cart Items</h2> */}
-      {/* )} */}
+      <div className={classes.cart}>
+        {cartData.length > 0 ? <h2>hi</h2> : <h2>No Items</h2>}
+      </div>
     </div>
   );
 };
