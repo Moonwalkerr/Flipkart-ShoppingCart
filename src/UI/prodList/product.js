@@ -89,6 +89,16 @@ const ProductCard = ({ product, cart, removeFrom }) => {
     setwishListData(wishListData);
     alert("Added to Wishlist");
   };
+
+  const handleRemove = (id) => {
+    if (removeFrom === "cart") {
+      let newCartData = cartData.filter((data) => data.id !== id);
+      setCartData(newCartData);
+    } else {
+      let newWishListData = wishListData.filter((data) => data.id !== id);
+      setwishListData(newWishListData);
+    }
+  };
   return (
     <div className={classes.root}>
       <img className={classes.productImg} src={product.imageURL} alt="" />
@@ -104,7 +114,7 @@ const ProductCard = ({ product, cart, removeFrom }) => {
       <div className={classes.productDetails}>
         <span className={classes.productPrice}> ₹ {product.price}</span>
         {removeFrom && (
-          <IconButton>
+          <IconButton onClick={() => handleRemove(product.id)}>
             {removeFrom === "cart" ? (
               <RemoveShoppingCartIcon />
             ) : (
