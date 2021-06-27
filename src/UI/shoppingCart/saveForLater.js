@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
-    color: "red",
+    color: "#2874f0",
     textDecoration: "underline",
+    fontSize: 23,
   },
 }));
 
